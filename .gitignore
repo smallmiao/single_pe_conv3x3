@@ -1,0 +1,30 @@
+# Vivado generated projects and run data
+vivado/project/
+vivado/project_onboard/
+**/.Xil/
+**/*.runs/
+**/*.cache/
+**/*.sim/
+**/xsim.dir/
+tb/work/
+modelsim.ini
+transcript
+vsim.wlf
+
+# Vivado generated outputs and logs
+*.bit
+*.bin
+*.dcp
+*.rpt
+*.rpx
+*.jou
+*.log
+*.str
+vivado/*_err.txt
+vivado/*_log.txt
+vivado/*_probe_log.txt
+
+# Python generated files
+__pycache__/
+*.py[cod]
+py/rtl_out.hex
