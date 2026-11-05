@@ -9,7 +9,14 @@
 ## 仿真流程（run_sim.do 自动执行）
 1. 编译 src/ 全部 7 个 RTL + tb。
 2. 运行仿真：
-   - 加载 ifm.hex / wgt.hex（从内存数组经 PS 写端口灌入 DUT）
+   - 加载 ifm.hex / wgt.hex（# 仿真数据加载说明
+								加载 ifm.hex / wgt.hex：
+								仿真环境下无PS处理器。两种可选加载方式：
+								1. $readmemh 预初始化片内ROM，数据在仿真开始时就存入PL内部ROM；
+								2. Testbench读取hex文件，在tb内部生成激励，通过valid-ready握手端口逐拍灌入DUT。
+
+								> 注意：PS参与数据灌入是【Zynq上板版本】的行为，不属于本仿真TB的逻辑。
+								）
    - 拉 start，等 done
    - 读 256 个 OFM，写 rtl_out.hex
    - 调用 `py/check_result.py rtl_out.hex golden_output.hex` 自动比对
